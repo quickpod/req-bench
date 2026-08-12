@@ -1,13 +1,14 @@
 {
   "slug": "req-bench",
   "name": "ReqBench",
-  "tagline": "An offline REST/GraphQL client \u2014 collections, environments, history and code-gen.",
+  "tagline": "An offline REST/GraphQL client — collections, environments, history and code-gen.",
   "categorySlug": "api-tools",
   "license": "Apache-2.0",
-  "description": "Build and send HTTP/REST and GraphQL requests with headers, params, auth and bodies; organize them into collections with environment variables; inspect responses (pretty JSON, headers, timing); replay from history; and generate client code snippets. A local Postman alternative \u2014 nothing is synced to any cloud.",
+  "description": "Build and send HTTP/REST and GraphQL requests with headers, params, auth and bodies; organize them into collections with environment variables; inspect responses (pretty JSON, headers, timing); replay from history; and generate client code snippets. A local Postman alternative — nothing is synced to any cloud.",
   "aiStack": "Python (tkinter + CLI), requests",
   "platforms": [
-    "windows"
+    "windows",
+    "linux"
   ],
   "buildEntry": "req_bench_app.py"
 }
