@@ -20,7 +20,9 @@ jobs:
           pyinstaller --onefile --windowed --name ReqBench
           --icon req-bench.ico
           --version-file packaging/version.txt
+          --hidden-import reqbench.__main__
           --add-data "req-bench.ico;."
+          --collect-all customtkinter
           req_bench_app.py
       - name: Stage installer inputs
         shell: pwsh
@@ -40,4 +42,10 @@ jobs:
           path: |
             dist/ReqBench.exe
             packaging/dist/ReqBench-Setup.exe
+          if-no-files-found: error
+      - name: Upload staging (for signed repack)
+        uses: actions/upload-artifact@v4
+        with:
+          name: req-bench-staging
+          path: packaging/staging
           if-no-files-found: error
