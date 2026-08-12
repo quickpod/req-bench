@@ -83,9 +83,12 @@ def test_redirect_not_followed_when_disabled(echo_server):
 
 
 def test_connection_error_is_clean_reqbench_error(dead_url):
+    # A dead port is refused instantly on Linux but can time out on Windows;
+    # either way the failure must surface as a clean ReqBenchError.
     with pytest.raises(ReqBenchError) as exc:
         send(Request(method="GET", url=dead_url, timeout=2))
-    assert "connect" in str(exc.value).lower()
+    msg = str(exc.value).lower()
+    assert "connect" in msg or "timed out" in msg
 
 
 def test_missing_url_raises(echo_server):
