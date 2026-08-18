@@ -21,7 +21,7 @@ from .graphql import send_graphql, build_graphql_request
 from .codegen import generate as generate_code, LANGUAGES
 from . import collections, history
 
-__version__ = "1.0.0"
+__version__ = "1.0.6"
 
 __all__ = [
     "ReqBenchError",
